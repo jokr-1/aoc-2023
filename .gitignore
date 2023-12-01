@@ -1,0 +1,5 @@
+.session-cookie
+.vscode
+target
+input.txt
+testinput*.txt

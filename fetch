@@ -1,0 +1,22 @@
+#!/bin/bash
+BASEPATH=~/Dev/aoc-2023
+DAY=$1
+if [ -z "$DAY" ]; then
+	DAY=$(date +%d | sed 's/^0*//')
+fi
+URL=https://adventofcode.com/2023/day/$DAY/input
+DAY_PATH=$(printf "%02d" $DAY)
+PROJECT=day-$DAY_PATH
+echo $PROJECT
+
+if ! [ -d "./$PROJECT" ]; then
+	echo "Initializing new rust project"
+	cargo init $PROJECT --vcs none
+	cp template/* $PROJECT/src/
+else
+	echo "Project '$PROJECT' already exists, lets only fetch or re-fetch input..."
+fi
+
+curl $URL -b session=$(cat .session-cookie) -o $PROJECT/input.txt
+touch $PROJECT/testinput.txt
+echo "done."
