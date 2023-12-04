@@ -6,7 +6,6 @@ fn main() {
     println!("Part 2: {:?}", part_two(input));
 }
 
-#[derive(Debug)]
 struct Card {
     winning: HashSet<u8>,
     hand: HashSet<u8>,
