@@ -1,7 +1,29 @@
+use std::{collections::HashMap, str::FromStr};
+
 fn main() {
     let input = include_str!("../input.txt");
     println!("Part 1: {:?}", part_one(input));
     println!("Part 2: {:?}", part_two(input));
+}
+
+enum Entity {
+    Number(u8),
+    Symbol(char),
+    None,
+}
+
+struct Index {
+    row: usize,
+    col: usize,
+}
+
+type Schematic = Vec<Vec<Entity>>;
+// 
+impl FromStr for <Vec<Vec<Entity>>> {
+    type Err = String;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone)]
