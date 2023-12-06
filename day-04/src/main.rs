@@ -14,7 +14,7 @@ struct Card {
 impl Card {
     fn points(&self) -> u32 {
         match self.winner_count() {
-            n if n < 1 => 0,
+            0 => 0,
             n => u32::pow(2, n as u32 - 1),
         }
     }
